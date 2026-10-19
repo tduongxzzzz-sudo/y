@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>20/10 Vui Vẻ Nha Bé Yêu ❤️</title>
+<style>
+:root{--bg1:#ffe3ec;--bg2:#ffc2d6;--text:#7a1740;--card:#ffffffd9;--accent:#ff4d85;--accent2:#e0316b;--muted:#a8466f;
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg1:#2a0b1a;--bg2:#4a1230;--text:#ffd6e5;--card:#3a1226d9;--accent:#ff5c93;--accent2:#d93a75;--muted:#ff9fc0}}
+:root[data-theme="dark"]{--bg1:#2a0b1a;--bg2:#4a1230;--text:#ffd6e5;--card:#3a1226d9;--accent:#ff5c93;--accent2:#d93a75;--muted:#ff9fc0}
+html{scroll-padding-top:env(safe-area-inset-top,0px);height:100%}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;height:100%;font-family:"Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif;color:var(--text);
+  background:linear-gradient(160deg,var(--bg1),var(--bg2));overflow:hidden;position:relative}
+.screen{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;text-align:center;
+  opacity:0;visibility:hidden;transition:opacity .6s,visibility .6s;z-index:3;overflow-y:auto}
+.screen.active{opacity:1;visibility:visible}
+#s4{justify-content:flex-start;padding-top:70px;padding-bottom:110px}
+h1{font-size:clamp(28px,8vw,48px);margin:0;line-height:1.3;animation:pop 1s ease}
+h2{font-size:clamp(24px,7vw,36px);margin:0 0 24px;line-height:1.35}
+.btns{display:flex;gap:16px;justify-content:center;align-items:center;flex-wrap:wrap}
+button{font:inherit;font-weight:700;border:0;border-radius:999px;cursor:pointer;color:#fff;background:linear-gradient(135deg,var(--accent),var(--accent2));
+  padding:14px 34px;font-size:20px;box-shadow:0 8px 20px rgba(224,49,107,.35);transition:transform .15s}
+button:active{transform:scale(.94)}
+button.no{background:var(--card);color:var(--text);box-shadow:none;border:2px solid var(--accent)}
+button.big{font-size:clamp(48px,16vw,96px);padding:.25em 1.2em;animation:pulse 1s infinite}
+#yes{transition:font-size .3s,padding .3s}
+.sad{font-size:clamp(20px,5.5vw,28px);margin:0 0 28px;line-height:1.5;max-width:420px}
+.tease{min-height:28px;margin:18px 0 0;color:var(--muted);font-weight:600}
+.card{background:var(--card);backdrop-filter:blur(6px);border-radius:24px;padding:26px 22px;max-width:460px;width:100%;box-shadow:0 10px 30px rgba(224,49,107,.25);margin-bottom:18px}
+.card h2{margin-bottom:14px}
+.letter{font-size:clamp(16px,4.4vw,19px);line-height:1.7;text-align:left;white-space:pre-line;min-height:150px}
+.env{font-size:96px;cursor:pointer;animation:pulse 1.2s infinite;background:none;box-shadow:none;padding:0}
+.counter{font-size:clamp(34px,10vw,52px);font-weight:800;color:var(--accent);margin:4px 0}
+.sign{color:var(--muted);font-weight:600}
+.hide{display:none}
+#modal{position:fixed;inset:0;background:#0007;display:none;align-items:center;justify-content:center;z-index:9;padding:24px}
+#modal.on{display:flex}
+#modal .card{text-align:center;animation:pop .5s}
+#gift{font-size:80px;display:block;margin:0 auto 8px;animation:shake 1s infinite}
+#mute{position:fixed;top:calc(env(safe-area-inset-top,0px) + 10px);right:12px;z-index:10;padding:8px 12px;font-size:20px;display:none}
+#fw{position:fixed;inset:0;z-index:2;pointer-events:none}
+.float{position:absolute;bottom:-50px;z-index:1;pointer-events:none;animation:rise linear forwards;opacity:.8}
+.garden{position:fixed;left:0;right:0;bottom:env(safe-area-inset-bottom,0px);z-index:4;display:flex;justify-content:space-around;font-size:34px;pointer-events:none;line-height:1}
+.garden span{display:inline-block;transform-origin:bottom;animation:sway 3s ease-in-out infinite}
+.pet{position:fixed;z-index:4;font-size:42px;pointer-events:none;animation:hop 1.6s ease-in-out infinite}
+#game{position:absolute;inset:0;z-index:5;touch-action:manipulation}
+.gh{position:absolute;top:-50px;font-size:44px;cursor:pointer;user-select:none;animation:fall linear forwards}
+.score{position:absolute;top:70px;left:0;right:0;font-size:22px;font-weight:700;pointer-events:none}
+@keyframes rise{to{transform:translateY(-115vh) rotate(25deg);opacity:0}}
+@keyframes fall{to{transform:translateY(115vh)}}
+@keyframes pop{0%{transform:scale(.6);opacity:0}100%{transform:scale(1);opacity:1}}
+@keyframes pulse{50%{transform:scale(1.07)}}
+@keyframes sway{50%{transform:rotate(7deg)}}
+@keyframes hop{50%{transform:translateY(-14px)}}
+@keyframes shake{0%,100%{transform:rotate(0)}25%{transform:rotate(-8deg)}75%{transform:rotate(8deg)}}
+</style>
+</head>
+<body>
+<audio id="bgm" loop src="nhac.mp3"></audio>
+<button id="mute">🔊</button>
+<canvas id="fw"></canvas>
+<div class="garden"><span>🌷</span><span style="animation-delay:.5s">🌸</span><span style="animation-delay:1s">🌻</span><span style="animation-delay:1.5s">🌹</span><span style="animation-delay:.8s">🌺</span><span style="animation-delay:1.2s">🌷</span><span style="animation-delay:.3s">🌸</span></div>
+<div class="pet" style="left:6%;bottom:44px">🐰</div>
+<div class="pet" style="left:44%;bottom:44px;animation-delay:.4s">🐻</div>
+<div class="pet" style="right:6%;bottom:44px;animation-delay:.8s">🐱</div>
+
+<div class="screen active" id="s1"><h1>20/10 Vui Vẻ Nha<br>Bé Yêu ❤️</h1></div>
+
+<div class="screen" id="s2">
+  <h2>Em Có Yêu Anh Hong? 🥰</h2>
+  <div class="btns"><button id="yes">Có 💖</button><button class="no" id="no">Không</button></div>
+  <p class="tease" id="tease"></p>
+</div>
+
+<div class="screen" id="s3">
+  <p class="sad">Em lỡ chọn Không vậy seoo 😭<br>Em chọn có đii mà 🥺</p>
+  <button class="big" id="yes2">Có</button>
+</div>
+
+<div class="screen" id="s4">
+  <div id="envBox"><button class="env" id="env">💌</button><p class="sign">Bấm vào thư để mở nha 🥰</p></div>
+  <div class="card hide" id="letterCard">
+    <h2>Gửi Bé Yêu 🌸</h2>
+    <div class="letter" id="letter"></div>
+  </div>
+  <div class="card hide" id="countCard">
+    <div class="sign">Mình đã yêu nhau được</div>
+    <div class="counter"><span id="days">0</span> ngày 💞</div>
+    <div class="sign">và anh còn muốn yêu em thêm nhiều ngày nữa</div>
+  </div>
+  <div class="btns hide" id="actions">
+    <button id="giftBtn">🎁 Mở quà</button>
+    <button id="gameBtn">🎮 Hứng tim</button>
+  </div>
+</div>
+
+<div class="screen" id="s5">
+  <div id="game"></div>
+  <div class="score" id="score"></div>
+</div>
+
+<div id="modal"><div class="card"><span id="gift">🎁</span><h2 id="vt">Voucher</h2><p id="vd" class="sign"></p><button id="close">Nhận nè 💖</button></div></div>
+
+<script>
+const $=id=>document.getElementById(id);
+const START=new Date('2025-01-01'); // ĐỔI thành ngày hai đứa yêu nhau (năm-tháng-ngày)
+const LETTER="Chúc em yêu của anh 20/10 thật vui, luôn xinh đẹp, rạng rỡ và cười thật nhiều mỗi ngày 🌸\n\nCảm ơn em vì đã xuất hiện, làm cuộc sống của anh ngọt ngào hơn rất nhiều 🍓\n\nMong em luôn khỏe mạnh, hạnh phúc, được yêu thương và cưng chiều, nhất là từ anh nha 🥰\n\nAnh yêu em nhiều lắm, mãi bên nhau nha Bé Yêu! 💕\n\n— Người yêu em nhất —";
+const VOUCHERS=[["🍜 Một buổi đi ăn","Em chọn quán, anh trả tiền, anh chở đi!"],["🤗 Một cái ôm thật chặt","Dùng bất cứ lúc nào em buồn hay mệt."],["🧋 Một ly trà sữa","Full topping, không bàn cãi."],["👑 Một ngày làm công chúa","Anh nghe lời em cả ngày."],["💆 Một buổi massage","Tay anh hơi vụng nhưng rất có tâm."],["🎬 Một buổi xem phim","Em chọn phim, anh mua bắp."],["💋 Một cái hôn","Hạn sử dụng: vô thời hạn."]];
+function show(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));$(id).classList.add('active')}
+const bgm=$('bgm');let muted=false;
+function playMusic(){bgm.volume=.7;bgm.play().catch(()=>{});$('mute').style.display='block'}
+$('mute').onclick=()=>{muted=!muted;bgm.muted=muted;$('mute').textContent=muted?'🔇':'🔊'};
+setTimeout(()=>show('s2'),2000);
+
+// Nút Không chạy trốn
+const teases=["Hông bấm được đâu nha 😜","Trượt rồi 🤭","Chạy nè chạy nè 🏃‍♂️","Thôi bấm Có đi mà 🥺","Gần được rồi đó..."];
+let tries=0;
+const no=$('no'),yes=$('yes');
+function runAway(e){
+  if(tries>=5)return;
+  e.preventDefault();e.stopPropagation();
+  tries++;
+  $('tease').textContent=teases[tries-1];
+  yes.style.fontSize=(20+tries*6)+'px';yes.style.padding=(14+tries*4)+'px '+(34+tries*8)+'px';
+  no.style.position='fixed';
+  const x=Math.random()*(innerWidth-120)+10,y=Math.random()*(innerHeight-120)+60;
+  no.style.left=x+'px';no.style.top=y+'px';
+}
+no.addEventListener('pointerenter',runAway);
+no.addEventListener('touchstart',runAway,{passive:false});
+no.addEventListener('click',e=>{if(tries<5)return runAway(e);show('s3')});
+function sayYes(){playMusic();show('s4');burst();for(let i=0;i<14;i++)setTimeout(floaty,i*90)}
+yes.onclick=sayYes;$('yes2').onclick=sayYes;
+
+// Thư
+$('env').onclick=()=>{
+  $('envBox').classList.add('hide');$('letterCard').classList.remove('hide');
+  let i=0;const el=$('letter');
+  const t=setInterval(()=>{el.textContent=LETTER.slice(0,++i);if(i>=LETTER.length){clearInterval(t);end()}},45);
+  burst();
+};
+function end(){
+  $('days').textContent=Math.max(0,Math.floor((Date.now()-START)/864e5));
+  $('countCard').classList.remove('hide');$('actions').classList.remove('hide');burst();
+  $('s4').scrollTo({top:$('s4').scrollHeight,behavior:'smooth'});
+}
+
+// Quà
+$('giftBtn').onclick=()=>{
+  const v=VOUCHERS[Math.floor(Math.random()*VOUCHERS.length)];
+  $('vt').textContent=v[0];$('vd').textContent=v[1];$('modal').classList.add('on');burst();
+};
+$('close').onclick=()=>$('modal').classList.remove('on');
+
+// Mini game
+let score=0,gameTimer;
+$('gameBtn').onclick=()=>{
+  score=0;$('game').innerHTML='';$('score').textContent='Hứng 10 trái tim nha: 0/10 💗';show('s5');
+  gameTimer=setInterval(()=>{
+    const h=document.createElement('div');h.className='gh';
+    h.textContent=['💖','💗','💕','🌸','🐥'][Math.floor(Math.random()*5)];
+    h.style.left=Math.random()*(innerWidth-60)+'px';h.style.animationDuration=(2.5+Math.random()*2)+'s';
+    const hit=()=>{if(h.dataset.d)return;h.dataset.d=1;h.remove();if(h.textContent==='🐥')return;score++;
+      $('score').textContent='Hứng 10 trái tim nha: '+score+'/10 💗';
+      if(score>=10){clearInterval(gameTimer);$('score').textContent='Giỏi quá bé yêu ơi! 🎉';burst();setTimeout(()=>{show('s4');$('giftBtn').click()},1200)}};
+    h.addEventListener('pointerdown',hit);
+    $('game').appendChild(h);setTimeout(()=>h.remove(),5000);
+  },550);
+};
+
+// Hoa, thú nổi
+const fl=['❤️','💖','🌸','🌷','🐰','🐻','🐱','🐥','🦋','🐼','🌻'];
+function floaty(){
+  const h=document.createElement('div');h.className='float';
+  h.textContent=fl[Math.floor(Math.random()*fl.length)];
+  h.style.left=Math.random()*95+'vw';h.style.fontSize=(18+Math.random()*26)+'px';h.style.animationDuration=(6+Math.random()*6)+'s';
+  document.body.appendChild(h);setTimeout(()=>h.remove(),13000);
+}
+setInterval(floaty,900);
+
+// Pháo hoa
+const cv=$('fw'),cx=cv.getContext('2d');let P=[];
+function fit(){cv.width=innerWidth;cv.height=innerHeight}fit();addEventListener('resize',fit);
+function burst(){
+  for(let b=0;b<3;b++){
+    const x=Math.random()*cv.width,y=Math.random()*cv.height*.5+40,c='hsl('+(320+Math.random()*40)+',100%,65%)';
+    for(let i=0;i<40;i++){const a=Math.PI*2*i/40,s=2+Math.random()*3;P.push({x,y,vx:Math.cos(a)*s,vy:Math.sin(a)*s,l:60,c})}
+  }
+}
+(function loop(){
+  cx.clearRect(0,0,cv.width,cv.height);
+  P=P.filter(p=>p.l>0);
+  P.forEach(p=>{p.x+=p.vx;p.y+=p.vy;p.vy+=.05;p.l--;cx.globalAlpha=p.l/60;cx.fillStyle=p.c;cx.beginPath();cx.arc(p.x,p.y,2.5,0,7);cx.fill()});
+  requestAnimationFrame(loop);
+})();
+</script>
+</body>
+</html>
